@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainPage from './../views/MainPage.vue'
-import NewProduct from '../views/NewProduct.vue'
+import NewProduct from '../views/NewProductPage.vue'
 import AboutPage from '../views/AboutPage.vue'
 import ContactsPage from '../views/ContactsPage.vue'
 import LoginPage from '../views/LoginPage.vue'
@@ -17,6 +17,8 @@ const routes = [
     component: NewProduct,
     name: 'newProduct',
   },
+  { path: '/category/:categoryName', component: MainPage, name: 'category' },
+  // { path: '/products/:productId', component: ProductPage, name: 'product' },
   {
     path: '/about-us',
     component: AboutPage,
