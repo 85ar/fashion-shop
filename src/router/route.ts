@@ -9,35 +9,55 @@ import ShoppingCartPage from '../views/ShoppingCartPage.vue'
 const routes = [
   {
     path: '/',
-    component: MainPage,
-    name: 'main',
+    component: () => import('../layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'mainPage',
+        component: () => import('../views/MainPage.vue'),
+      },
+      {
+        path: 'category/:CategoryName',
+        name: 'category',
+        component: () => import('../views/CategoryPage.vue'),
+      },
+    ],
   },
   {
-    path: '/new-product',
-    component: NewProduct,
-    name: 'newProduct',
-  },
-  { path: '/category/:categoryName', component: MainPage, name: 'category' },
-  // { path: '/products/:productId', component: ProductPage, name: 'product' },
-  {
-    path: '/about-us',
-    component: AboutPage,
-    name: 'aboutUs',
-  },
-  {
-    path: '/contacts',
-    component: ContactsPage,
-    name: 'contacts',
-  },
-  {
-    path: '/login',
-    component: LoginPage,
-    name: 'login',
-  },
-  {
-    path: '/shopping-cart',
-    component: ShoppingCartPage,
-    name: 'shoppingCart',
+    path: '/simple',
+    component: () => import('../layouts/SimpleLayout.vue'),
+    children: [
+      {
+        path: '/new-product',
+        name: 'newProduct',
+        component: () => import('../views/NewProductPage.vue'),
+      },
+      {
+        path: '/about-us',
+        name: 'aboutUs',
+        component: () => import('../views/AboutPage.vue'),
+      },
+      {
+        path: '/contacts',
+        name: 'contacts',
+        component: () => import('../views/ContactsPage.vue'),
+      },
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('../views/LoginPage.vue'),
+      },
+      {
+        path: '/shopping-cart',
+        name: 'shoppingCart',
+        component: () => import('../views/ShoppingCartPage.vue'),
+      },
+      {
+        path: '/products/:productId',
+        name: 'product',
+        component: () => import('../views/ProductPage.vue'),
+      },
+    ],
   },
 ]
 

@@ -1,12 +1,9 @@
 <template>
   <aside class="categories">
     <div class="title">Catalog</div>
-    <div v-if="loading">
-      <Spinner />
-    </div>
-    <div class="list" v-else>
+    <div class="list">
       <router-link
-        :class="props.selectedCategory === category ? 'active' : 'link'"
+        :class="route.params.CategoryName === category ? 'active' : 'link'"
         v-for="category in store.categories"
         :key="category"
         :to="{ path: `/category/${category}` }"
@@ -21,12 +18,11 @@
 import { onMounted, ref } from 'vue'
 import { useShopStore } from '../stores/store'
 import Spinner from './Spinner.vue'
-// import type { Category } from '../types/type'
-
-const props = defineProps(['selectedCategory'])
+import { useRoute } from 'vue-router'
 
 const store = useShopStore()
 const loading = ref(true)
+const route = useRoute()
 
 onMounted(async () => {
   !store.categories.length && (await store.fetchCategories())
@@ -70,9 +66,4 @@ onMounted(async () => {
 .active::first-letter {
   text-transform: uppercase;
 }
-
-/* .loader {
-  position: absolute;
-  top: 30%;
-} */
 </style>
