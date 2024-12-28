@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MainPage from './../views/MainPage.vue'
+import MainPage from '../views/MainPage.vue'
 import NewProduct from '../views/NewProductPage.vue'
 import AboutPage from '../views/AboutPage.vue'
 import ContactsPage from '../views/ContactsPage.vue'
@@ -53,7 +53,7 @@ const routes = [
         component: () => import('../views/ShoppingCartPage.vue'),
       },
       {
-        path: '/products/:productId',
+        path: '/product/:productId',
         name: 'product',
         component: () => import('../views/ProductPage.vue'),
       },

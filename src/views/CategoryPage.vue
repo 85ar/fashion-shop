@@ -1,7 +1,7 @@
 <template>
-  <div>Category</div>
+  <ProductsByCategory :key="$route.params.CategoryName"/>
 </template>
 
-<script setup lang="ts"></script>
-
-<style scoped></style>
+<script setup lang="ts">
+import ProductsByCategory from '../components/ProductsByCategory.vue'
+</script>

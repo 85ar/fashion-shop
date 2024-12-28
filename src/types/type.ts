@@ -23,8 +23,13 @@ export interface ShopStore {
   categories: Ref<Category[]>
   products: Ref<Product[]>
   productsByCategory: Ref<Product[]>
+  loading: Ref<Boolean | undefined>
+  productItem: Ref<Product>
+  limit: Ref<number>
+  page: Ref<number>
 
   fetchCategories: () => Promise<void>
   fetchProducts: () => Promise<void>
   fetchProductsByCategory: (categoryName: Category) => Promise<void>
+  fetchProductById: (productId: number) => Promise<void>
 }

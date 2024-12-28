@@ -33,7 +33,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { CaShoppingCart } from '@kalimahapps/vue-icons'
 import { AnOutlinedUser } from '@kalimahapps/vue-icons'
 import { IoOutlineLogOut } from '@kalimahapps/vue-icons'

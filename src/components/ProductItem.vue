@@ -16,15 +16,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useShopStore } from '../stores/store'
-// import type { Product } from '../types/type';
-
-const store = useShopStore()
 
 const router = useRouter()
-const isInCart = ref(false)
 
 const props = defineProps({
   product: {
@@ -33,10 +27,11 @@ const props = defineProps({
 })
 
 const openProductDetail = (product) => {
-console.log('product', product);
-
+  router.push({
+    name: 'product',
+    params: { productId: product.id },
+  })
 }
-
 </script>
 
 <style scoped>
@@ -98,36 +93,14 @@ console.log('product', product);
 .priceValue {
   color: var(--third);
 }
-
 .title {
   text-align: center;
   font-size: 16px;
   margin-bottom: 10px;
   display: -webkit-box;
-  /* -webkit-line-clamp: 2; */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-.buyBtn {
-  padding: 6px 8px;
-  color: var(--primary);
-  border-radius: 4px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  background-color: var(--accent);
-}
-.buyBtn:hover {
-  background-color: var(--third);
-}
-.inCartBtn {
-  padding: 6px 8px;
-  color: var(--primary);
-  border-radius: 4px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  background-color: var(--third);
+  text-overflow: ellipsis;
 }
 </style>

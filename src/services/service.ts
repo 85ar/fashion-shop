@@ -19,3 +19,15 @@ export const getProductsByCategory = async (categoryName: Category): Promise<Pro
   const response = await axios.get(`${API_CONFIG.api}/category/${categoryName}`)
   return response.data
 }
+
+// загрузка данных по выбранному продукту
+export const getProductById = async (productId: number): Promise<Product> => {
+  const response = await axios.get(`${API_CONFIG.api}/${productId}`)
+  return response.data
+}
+
+// // загрузка данных по выбранному продукту
+// export const getProductByLimit = async (limit: number): Promise<Product[]> => {
+//   const response = await axios.get(`${API_CONFIG.api}/${productId}`)
+//   return response.data
+// }
